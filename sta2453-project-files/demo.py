@@ -24,8 +24,7 @@ class PutNet(nn.Module):
         l = torch.tensor([0.0, 50.0, 0.0, 0.001, 0.05])
         h = torch.tensor([200.0, 150.0, 5.0, 0.05, 1.5])
         x = (x - l) / (h - l)
-        x = torch.logit(x)
-        # x = F.normalize(x)
+        # x = torch.logit(x)
 
         x = F.relu(self.inlayer(x))
         for i, layer in enumerate(self.hid_layers):
